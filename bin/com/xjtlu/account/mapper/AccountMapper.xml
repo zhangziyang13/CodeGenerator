@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xjtlu.account.dao.AccountDao" > 
+<!-- Result Map-->
+<resultMap id="BaseResultMap" type="com.xjtlu.account.entity.Account" >
+	<result column="id" property="id"/>
+	<result column="username" property="username"/>
+	<result column="password" property="password"/>
+	<result column="realname" property="realname"/>
+	<result column="nickname" property="nickname"/>
+	<result column="gender" property="gender"/>
+	<result column="birthday" property="birthday"/>
+	<result column="mobilephone" property="mobilephone"/>
+	<result column="telephone" property="telephone"/>
+	<result column="fax" property="fax"/>
+	<result column="country" property="country"/>
+	<result column="province" property="province"/>
+	<result column="city" property="city"/>
+	<result column="district" property="district"/>
+	<result column="address" property="address"/>
+	<result column="longitude" property="longitude"/>
+	<result column="latitude" property="latitude"/>
+	<result column="coordinate" property="coordinate"/>
+	<result column="payPwd" property="payPwd"/>
+	<result column="label" property="label"/>
+	<result column="portrait" property="portrait"/>
+	<result column="picture" property="picture"/>
+	<result column="type" property="type"/>
+	<result column="overallRating" property="overallRating"/>
+	<result column="serviceRating" property="serviceRating"/>
+	<result column="environmentRating" property="environmentRating"/>
+	<result column="budget" property="budget"/>
+	<result column="detailURL" property="detailURL"/>
+	<result column="commentNum" property="commentNum"/>
+	<result column="parentId" property="parentId"/>
+	<result column="parentIdList" property="parentIdList"/>
+	<result column="isProved" property="isProved"/>
+	<result column="levelIds" property="levelIds"/>
+	<result column="groupLabelIds" property="groupLabelIds"/>
+	<result column="loginTime" property="loginTime"/>
+	<result column="loginIP" property="loginIP"/>
+	<result column="createTime" property="createTime"/>
+	<result column="createBy" property="createBy"/>
+	<result column="updateTime" property="updateTime"/>
+	<result column="updateBy" property="updateBy"/>
+	<result column="state" property="state"/>
+</resultMap>
+       
+<!-- account table all fields -->
+<sql id="Base_Column_List" >
+	 id,username,password,realname,nickname,gender,birthday,mobilephone,telephone,fax,country,province,city,district,address,longitude,latitude,coordinate,payPwd,label,portrait,picture,type,overallRating,serviceRating,environmentRating,budget,detailURL,commentNum,parentId,parentIdList,isProved,levelIds,groupLabelIds,loginTime,loginIP,createTime,createBy,updateTime,updateBy,state
+</sql>
+   
+   
+<!-- 查询条件 -->
+<sql id="Example_Where_Clause">
+where 1=1
+<trim  suffixOverrides="," >
+	<if test="id != null and id != ''" >
+	    and id =  #{id}
+	</if>
+	<if test="username != null and username != ''" >
+	    and username =  #{username}
+	</if>
+	<if test="password != null and password != ''" >
+	    and password =  #{password}
+	</if>
+	<if test="realname != null and realname != ''" >
+	    and realname =  #{realname}
+	</if>
+	<if test="nickname != null and nickname != ''" >
+	    and nickname =  #{nickname}
+	</if>
+	<if test="gender != null and gender != ''" >
+	    and gender =  #{gender}
+	</if>
+	<if test="birthday != null and birthday != ''" >
+	    and birthday =  #{birthday}
+	</if>
+	<if test="mobilephone != null and mobilephone != ''" >
+	    and mobilephone =  #{mobilephone}
+	</if>
+	<if test="telephone != null and telephone != ''" >
+	    and telephone =  #{telephone}
+	</if>
+	<if test="fax != null and fax != ''" >
+	    and fax =  #{fax}
+	</if>
+	<if test="country != null and country != ''" >
+	    and country =  #{country}
+	</if>
+	<if test="province != null and province != ''" >
+	    and province =  #{province}
+	</if>
+	<if test="city != null and city != ''" >
+	    and city =  #{city}
+	</if>
+	<if test="district != null and district != ''" >
+	    and district =  #{district}
+	</if>
+	<if test="address != null and address != ''" >
+	    and address =  #{address}
+	</if>
+	<if test="longitude != null and longitude != ''" >
+	    and longitude =  #{longitude}
+	</if>
+	<if test="latitude != null and latitude != ''" >
+	    and latitude =  #{latitude}
+	</if>
+	<if test="coordinate != null and coordinate != ''" >
+	    and coordinate =  #{coordinate}
+	</if>
+	<if test="payPwd != null and payPwd != ''" >
+	    and payPwd =  #{payPwd}
+	</if>
+	<if test="label != null and label != ''" >
+	    and label =  #{label}
+	</if>
+	<if test="portrait != null and portrait != ''" >
+	    and portrait =  #{portrait}
+	</if>
+	<if test="picture != null and picture != ''" >
+	    and picture =  #{picture}
+	</if>
+	<if test="type != null and type != ''" >
+	    and type =  #{type}
+	</if>
+	<if test="overallRating != null and overallRating != ''" >
+	    and overallRating =  #{overallRating}
+	</if>
+	<if test="serviceRating != null and serviceRating != ''" >
+	    and serviceRating =  #{serviceRating}
+	</if>
+	<if test="environmentRating != null and environmentRating != ''" >
+	    and environmentRating =  #{environmentRating}
+	</if>
+	<if test="budget != null and budget != ''" >
+	    and budget =  #{budget}
+	</if>
+	<if test="detailURL != null and detailURL != ''" >
+	    and detailURL =  #{detailURL}
+	</if>
+	<if test="commentNum != null and commentNum != ''" >
+	    and commentNum =  #{commentNum}
+	</if>
+	<if test="parentId != null and parentId != ''" >
+	    and parentId =  #{parentId}
+	</if>
+	<if test="parentIdList != null and parentIdList != ''" >
+	    and parentIdList =  #{parentIdList}
+	</if>
+	<if test="isProved != null and isProved != ''" >
+	    and isProved =  #{isProved}
+	</if>
+	<if test="levelIds != null and levelIds != ''" >
+	    and levelIds =  #{levelIds}
+	</if>
+	<if test="groupLabelIds != null and groupLabelIds != ''" >
+	    and groupLabelIds =  #{groupLabelIds}
+	</if>
+	<if test="loginTime != null and loginTime != ''" >
+	    and loginTime =  #{loginTime}
+	</if>
+	<if test="loginIP != null and loginIP != ''" >
+	    and loginIP =  #{loginIP}
+	</if>
+	<if test="createTime != null and createTime != ''" >
+	    and createTime =  #{createTime}
+	</if>
+	<if test="createBy != null and createBy != ''" >
+	    and createBy =  #{createBy}
+	</if>
+	<if test="updateTime != null and updateTime != ''" >
+	    and updateTime =  #{updateTime}
+	</if>
+	<if test="updateBy != null and updateBy != ''" >
+	    and updateBy =  #{updateBy}
+	</if>
+	<if test="state != null and state != ''" >
+	    and state =  #{state}
+	</if>
+</trim>
+</sql>
+   
+
+<!-- 插入记录 -->
+<insert id="add" parameterType="Object" >
+<selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="id">
+	SELECT LAST_INSERT_ID()
+  </selectKey>
+  insert into account(id,username,password,realname,nickname,gender,birthday,mobilephone,telephone,fax,country,province,city,district,address,longitude,latitude,coordinate,payPwd,label,portrait,picture,type,overallRating,serviceRating,environmentRating,budget,detailURL,commentNum,parentId,parentIdList,isProved,levelIds,groupLabelIds,loginTime,loginIP,createTime,createBy,updateTime,updateBy,state)
+ values(#{id},#{username},#{password},#{realname},#{nickname},#{gender},#{birthday},#{mobilephone},#{telephone},#{fax},#{country},#{province},#{city},#{district},#{address},#{longitude},#{latitude},#{coordinate},#{payPwd},#{label},#{portrait},#{picture},#{type},#{overallRating},#{serviceRating},#{environmentRating},#{budget},#{detailURL},#{commentNum},#{parentId},#{parentIdList},#{isProved},#{levelIds},#{groupLabelIds},#{loginTime},#{loginIP},#{createTime},#{createBy},#{updateTime},#{updateBy},<choose><when test="state != null and state != ''" >#{state}</when><otherwise>1</otherwise></choose>)
+</insert>
+
+<!-- 根据id，修改记录-->  
+ <update id="updateBySelective" parameterType="Object" >
+  update account set username=#{username},password=#{password},realname=#{realname},nickname=#{nickname},gender=#{gender},birthday=#{birthday},mobilephone=#{mobilephone},telephone=#{telephone},fax=#{fax},country=#{country},province=#{province},city=#{city},district=#{district},address=#{address},longitude=#{longitude},latitude=#{latitude},coordinate=#{coordinate},payPwd=#{payPwd},label=#{label},portrait=#{portrait},picture=#{picture},type=#{type},overallRating=#{overallRating},serviceRating=#{serviceRating},environmentRating=#{environmentRating},budget=#{budget},detailURL=#{detailURL},commentNum=#{commentNum},parentId=#{parentId},parentIdList=#{parentIdList},isProved=#{isProved},levelIds=#{levelIds},groupLabelIds=#{groupLabelIds},loginTime=#{loginTime},loginIP=#{loginIP},createBy=#{createBy},updateTime=now(),updateBy=#{updateBy},state=#{state} where id=#{id}
+ </update>
+ 
+ <!-- 修改记录，只修改只不为空的字段 -->
+<update id="update" parameterType="Object" >
+	update account set 
+	<trim  suffixOverrides="," >
+	<if test="username != null  ">
+		username=#{username},
+	</if>
+	<if test="password != null  ">
+		password=#{password},
+	</if>
+	<if test="realname != null  ">
+		realname=#{realname},
+	</if>
+	<if test="nickname != null  ">
+		nickname=#{nickname},
+	</if>
+	<if test="gender != null  ">
+		gender=#{gender},
+	</if>
+	<if test="birthday != null  ">
+		birthday=#{birthday},
+	</if>
+	<if test="mobilephone != null  ">
+		mobilephone=#{mobilephone},
+	</if>
+	<if test="telephone != null  ">
+		telephone=#{telephone},
+	</if>
+	<if test="fax != null  ">
+		fax=#{fax},
+	</if>
+	<if test="country != null  ">
+		country=#{country},
+	</if>
+	<if test="province != null  ">
+		province=#{province},
+	</if>
+	<if test="city != null  ">
+		city=#{city},
+	</if>
+	<if test="district != null  ">
+		district=#{district},
+	</if>
+	<if test="address != null  ">
+		address=#{address},
+	</if>
+	<if test="longitude != null  ">
+		longitude=#{longitude},
+	</if>
+	<if test="latitude != null  ">
+		latitude=#{latitude},
+	</if>
+	<if test="coordinate != null  ">
+		coordinate=#{coordinate},
+	</if>
+	<if test="payPwd != null  ">
+		payPwd=#{payPwd},
+	</if>
+	<if test="label != null  ">
+		label=#{label},
+	</if>
+	<if test="portrait != null  ">
+		portrait=#{portrait},
+	</if>
+	<if test="picture != null  ">
+		picture=#{picture},
+	</if>
+	<if test="type != null  ">
+		type=#{type},
+	</if>
+	<if test="overallRating != null  ">
+		overallRating=#{overallRating},
+	</if>
+	<if test="serviceRating != null  ">
+		serviceRating=#{serviceRating},
+	</if>
+	<if test="environmentRating != null  ">
+		environmentRating=#{environmentRating},
+	</if>
+	<if test="budget != null  ">
+		budget=#{budget},
+	</if>
+	<if test="detailURL != null  ">
+		detailURL=#{detailURL},
+	</if>
+	<if test="commentNum != null  ">
+		commentNum=#{commentNum},
+	</if>
+	<if test="parentId != null  ">
+		parentId=#{parentId},
+	</if>
+	<if test="parentIdList != null  ">
+		parentIdList=#{parentIdList},
+	</if>
+	<if test="isProved != null  ">
+		isProved=#{isProved},
+	</if>
+	<if test="levelIds != null  ">
+		levelIds=#{levelIds},
+	</if>
+	<if test="groupLabelIds != null  ">
+		groupLabelIds=#{groupLabelIds},
+	</if>
+	<if test="loginTime != null  ">
+		loginTime=#{loginTime},
+	</if>
+	<if test="loginIP != null  ">
+		loginIP=#{loginIP},
+	</if>
+	<if test="createTime != null  ">
+		createTime=#{createTime},
+	</if>
+	<if test="createBy != null  ">
+		createBy=#{createBy},
+	</if>
+	<if test="updateTime != null  ">
+		updateTime=#{updateTime},
+	</if>
+	<if test="updateBy != null  ">
+		updateBy=#{updateBy},
+	</if>
+	<if test="state != null  ">
+		state=#{state},
+	</if>
+	</trim> where id=#{id}
+</update>
+
+<!-- 删除记录 -->
+<delete id="delete" parameterType="Object">
+	update account set state = 0  where id = #{id}
+</delete>
+ 
+<!-- 根据id查询 账户表 -->
+<select id="queryById"  resultMap="BaseResultMap" parameterType="Object">
+	select <include refid="Base_Column_List" /> 
+	 from account where id = #{id}
+</select>
+
+<!-- 账户表 列表总数-->
+<select id="queryByCount" resultType="java.lang.Integer"  parameterType="Object">
+	select count(1) from account 
+	<include refid="Example_Where_Clause"/>
+</select>
+  	
+<!-- 查询账户表列表 -->
+<select id="queryByList" resultMap="BaseResultMap"  parameterType="Object">
+	select 
+	<include refid="Base_Column_List"/>
+	from account 
+	<include refid="Example_Where_Clause"/>
+	<if test="pager.orderCondition != null and pager.orderCondition != ''" >
+      ${pager.orderCondition}
+    </if>
+    <if test="pager.mysqlQueryCondition != null and pager.mysqlQueryCondition != ''" >
+       ${pager.mysqlQueryCondition}
+    </if>
+</select>
+<select id="queryOne" resultMap="BaseResultMap"  parameterType="Object">
+	select <include refid="Base_Column_List" /> 
+	 from account
+	<include refid="Example_Where_Clause"/>
+</select>  	
+  	
+</mapper>   
